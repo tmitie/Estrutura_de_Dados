@@ -6,10 +6,7 @@
 /*
 Universidade Federal de Santa Catarina
 Engenharia de Computacao
-Exercício Programa 1 de Estrutura de Dados
-Matheus de Oliveira Barcelos - 14104028
-Thaynara Tessaline Mitie Sei Soares - 13204556
-Filipe Lopes - 14205352
+ExercÃ­cio Programa 1 de Estrutura de Dados
 */
 
 
@@ -26,7 +23,7 @@ struct matriz_{
 
 typedef struct matriz_ Matriz;
 
-/*Declaração de Funções*/
+/*DeclaraÃ§Ã£o de FunÃ§Ãµes*/
 Matriz LeM(FILE *arq);
 void inserir(Celula *v, int x, int i, int j);
 void inicializa(Celula *V, int m);
@@ -43,7 +40,7 @@ void AtribuiM(Matriz D, Matriz O);
 
 int main(){
 
-    /*PARA UTILIZAR AS FUNÇÕES DO TIPO MATRIZ É NESCESSARIO ATRIBUIR ELAS A MM, AS DO*/
+    /*PARA UTILIZAR AS FUNÃ‡Ã•ES DO TIPO MATRIZ Ã‰ NESCESSARIO ATRIBUIR ELAS A MM, AS DO*/
     /*TIPO VOID BASTA CHAMAR NORMALMENTE*/
 
     Matriz A, W, O, MM;
@@ -140,14 +137,14 @@ fclose(arq);
 return M;
 }
 
-void inicializa(Celula *V, int m){ /*INICIALIZANDO UMA CELULA COM CABEÇA*/
+void inicializa(Celula *V, int m){ /*INICIALIZANDO UMA CELULA COM CABEÃ‡A*/
     int i;
     for(i = 0; i< m; i++){
         V[i].seg = NULL;
     }
 }
 
-void imprimir (Celula *V) /*FUNÇÃO AUXILIAR PARA AJUDAR COM O ESCREVE*/
+void imprimir (Celula *V) /*FUNÃ‡ÃƒO AUXILIAR PARA AJUDAR COM O ESCREVE*/
 {
     Celula *p;
     int j = 0;
@@ -215,8 +212,8 @@ Matriz SubtraiMs(Matriz A, Matriz B)
 
         for ( i = 0; i < m; i++)
         {
-            for(auxA = A.V[i].seg; auxA != NULL; ) /* PARA A SUBTRAÇÃO DE MATRIZES, HAVERÁ PROBLEMAS SE O ÚLTIMO ELEMENTO DA COLUNA DA MATRIZ FOR ZERO, */
-            {                                      /* POIS, POR NÃO ARMAZENAR OS ZEROS, O CAMPO SEG APONTARÁ PARA NULL, FAZENDO COM QUE VÁ PARA A PROXIMA LINHA*/
+            for(auxA = A.V[i].seg; auxA != NULL; ) /* PARA A SUBTRAÃ‡ÃƒO DE MATRIZES, HAVERÃ PROBLEMAS SE O ÃšLTIMO ELEMENTO DA COLUNA DA MATRIZ FOR ZERO, */
+            {                                      /* POIS, POR NÃƒO ARMAZENAR OS ZEROS, O CAMPO SEG APONTARÃ PARA NULL, FAZENDO COM QUE VÃ PARA A PROXIMA LINHA*/
                 for(auxB = B.V[i].seg; auxB != NULL; )
                 {
                     if (auxA->posn == auxB->posn)
@@ -225,12 +222,12 @@ Matriz SubtraiMs(Matriz A, Matriz B)
                         auxA = auxA->seg;
                         auxB = auxB->seg;
                     }
-                    else if (auxA->posn < auxB->posn) /*SE A FOR MENOR QUE B, SIGNIFICA QUE O A PULOU DE POSIÇÃO, POR NÃO CONTER ELEMENTOS, OU ZEROS*/
+                    else if (auxA->posn < auxB->posn) /*SE A FOR MENOR QUE B, SIGNIFICA QUE O A PULOU DE POSIÃ‡ÃƒO, POR NÃƒO CONTER ELEMENTOS, OU ZEROS*/
                     {
                         inserir(&Sub.V[i],(auxA->valor + 0), i, auxA->posn);
                         auxA = auxA->seg;
                     }
-                    else if (auxA->posn > auxB->posn) /*SE B FOR MENOR QUE A, SIGNIFICA QUE O B PULOU DE POSIÇÃO, POR NÃO CONTER ELEMENTOS, OU ZEROS*/
+                    else if (auxA->posn > auxB->posn) /*SE B FOR MENOR QUE A, SIGNIFICA QUE O B PULOU DE POSIÃ‡ÃƒO, POR NÃƒO CONTER ELEMENTOS, OU ZEROS*/
                     {
                         inserir(&Sub.V[i],(0 - auxB->valor), i, auxA->posn);
                         auxB = auxB->seg;
@@ -260,8 +257,8 @@ Matriz SomaMs(Matriz A, Matriz B)
         for ( i = 0; i < m; i++)
         {
 
-            for(auxA = A.V[i].seg; auxA != NULL; )/* PARA A SOMA DE MATRIZES, HAVERÁ PROBLEMAS SE O ÚLTIMO ELEMENTO DA COLUNA DA MATRIZ FOR ZERO, */
-            {                                       /* POIS, POR NÃO ARMAZENAR OS ZEROS, O CAMPO SEG APONTARÁ PARA NULL, FAZENDO COM QUE VÁ PARA A PROXIMA LINHA*/
+            for(auxA = A.V[i].seg; auxA != NULL; )/* PARA A SOMA DE MATRIZES, HAVERÃ PROBLEMAS SE O ÃšLTIMO ELEMENTO DA COLUNA DA MATRIZ FOR ZERO, */
+            {                                       /* POIS, POR NÃƒO ARMAZENAR OS ZEROS, O CAMPO SEG APONTARÃ PARA NULL, FAZENDO COM QUE VÃ PARA A PROXIMA LINHA*/
                 for(auxB = B.V[i].seg; auxB != NULL; )
                 {
 
@@ -271,12 +268,12 @@ Matriz SomaMs(Matriz A, Matriz B)
                         auxA = auxA->seg;
                         auxB = auxB->seg;
                     }
-                    else if (auxA->posn < auxB->posn)/*SE A FOR MENOR QUE B, SIGNIFICA QUE O A PULOU DE POSIÇÃO, POR NÃO CONTER ELEMENTOS, OU ZEROS*/
+                    else if (auxA->posn < auxB->posn)/*SE A FOR MENOR QUE B, SIGNIFICA QUE O A PULOU DE POSIÃ‡ÃƒO, POR NÃƒO CONTER ELEMENTOS, OU ZEROS*/
                     {
                         inserir(&Soma.V[i],(auxA->valor + 0), i, auxA->posn);
                         auxA = auxA->seg;
                     }
-                    else if (auxA->posn > auxB->posn) /*SE B FOR MENOR QUE A, SIGNIFICA QUE O B PULOU DE POSIÇÃO, POR NÃO CONTER ELEMENTOS, OU ZEROS*/
+                    else if (auxA->posn > auxB->posn) /*SE B FOR MENOR QUE A, SIGNIFICA QUE O B PULOU DE POSIÃ‡ÃƒO, POR NÃƒO CONTER ELEMENTOS, OU ZEROS*/
                     {
                         inserir(&Soma.V[i],(0 + auxB->valor), i, auxA->posn);
                         auxB = auxB->seg;
@@ -310,7 +307,7 @@ Matriz MultiplicaMs(Matriz A, Matriz B)
 
     inicializa(Mult.V, m);
 
-    if((A.ordern == B.orderm))/*CONDIÇÃO PARA A MULTIPLICAÇAO*/ /* (A.orderm == B.ordern)) SIGNIFICA A ORDEM DA MATRIZ */
+    if((A.ordern == B.orderm))/*CONDIÃ‡ÃƒO PARA A MULTIPLICAÃ‡AO*/ /* (A.orderm == B.ordern)) SIGNIFICA A ORDEM DA MATRIZ */
     {
         for ( i = 0; i < A.orderm; i++)
         {
@@ -320,7 +317,7 @@ Matriz MultiplicaMs(Matriz A, Matriz B)
                 {
                     for(auxB = B.V[j].seg; auxB != NULL; auxB = auxB->seg)
                     {
-                        if((auxA->posm == auxB->posn) && (auxA->posn == auxB->posm)) /*VERIFICA A POSICAO DE LINHA E COLUNA DOS ELEMENTOS PARA REALIZAR A MULTIPLICAÇÃO*/
+                        if((auxA->posm == auxB->posn) && (auxA->posn == auxB->posm)) /*VERIFICA A POSICAO DE LINHA E COLUNA DOS ELEMENTOS PARA REALIZAR A MULTIPLICAÃ‡ÃƒO*/
                         {
                                soma = soma + (auxA->valor * auxB->valor);
                                inserir(&Mult.V[i], soma, i, j);
