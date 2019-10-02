@@ -1,9 +1,3 @@
-/*
-  Matheus de Oliveira Barcelos         - 14104028
-  Thaynara Tessaline Mitie Sei Soares  - 13204556
-  Filipe Rafael Lopes da Silva         - 14205352
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -38,7 +32,7 @@ int Delete(Process *Heap, int pos, int t) {
                 if (Heap[pos * 2 + 1].priority > Heap[pos * 2].priority) {
                     IMai = pos * 2 + 1;
                 } else {
-                    /* se for a última linha, inverte a posiçao t - 2 pela t - 1 e sobe a t - 1 */
+                    /* se for a Ãºltima linha, inverte a posiÃ§ao t - 2 pela t - 1 e sobe a t - 1 */
                     if (pos * 2 == t - 2) {
                         Process aux;
                         aux = Heap[pos * 2];
@@ -54,8 +48,8 @@ int Delete(Process *Heap, int pos, int t) {
             Heap[pos] = Heap[IMai];
         } else {
             /* Caso nao haja mais "filho" e ainda haja termos mais a "frente" no vetor */
-            if (Insere(Heap, Heap[t - 1], pos)); /* Ele nao vai ter que ir descendo na árvore, a última posiçao do vetor,*/
-            return t - 1;       /*só deverá subi-la a partir da posiçao em que se está quando chega aqui a execuçao */
+            if (Insere(Heap, Heap[t - 1], pos)); /* Ele nao vai ter que ir descendo na Ã¡rvore, a Ãºltima posiÃ§ao do vetor,*/
+            return t - 1;       /*sÃ³ deverÃ¡ subi-la a partir da posiÃ§ao em que se estÃ¡ quando chega aqui a execuÃ§ao */
         }
         pos = IMai;
     }
@@ -100,7 +94,7 @@ int main() {
             Exec = Heap[1];
             t = Delete(Heap, 1, t);
 
-            /* Atualizando o valor de tempo do processo em execuçao */
+            /* Atualizando o valor de tempo do processo em execuÃ§ao */
             Exec.time -= 50;
             printf("id%d\n", Exec.id);
             if (Exec.time > 0) {
